@@ -5,6 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+Pokemon.destroy_all
+Generation.destroy_all
+Game.destroy_all
+
 require 'httparty'
 
 # the pokemon api's
@@ -23,41 +29,27 @@ gen_results = @json_gen['results']
 game_results = @json_game['results']
 
 
-# populate pokemons table
-(1..3).each do |x|
-    # pokemon = "#{x['name']}".capitalize
-    # @names = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['name']
-    # @id = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['id']
+# populate pokemons table for GEN 1 -- (For time reasons, had to split it up by generation)
+(1..151).each do |x|
+
+    @names = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['name']
+    capitalized_name = @names.capitalize
+
+    @id = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['id']
     # @height = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['height']
-    # @img_path = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['sprites']['front_default']
+    @img_path = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['sprites']['front_default']
 
     @gen = HTTParty.get('https://pokeapi.co/api/v2/pokemon-species/' + x.to_s)['generation']['name']
+    capitalized_gen = @gen.capitalize
 
-    # puts statement
-    # puts "#{@id} -- #{@names} -- #{@height} -- #{@img_path}"
-    puts "#{@gen}"
+    # puts statement for testing
+    # puts "#{@id} -- #{capitalized_name} -- #{@img_path} -- #{capitalized_gen}"
 
-    # populate_pokemon = Pokemon.create( :name  => @names,
-    #                                    :pokedex_number => @id!,
-    #                                    :image  => @img_path)
+    populate_pokemon = Pokemon.create( :name  => capitalized_name,
+                                       :pokedex_number => @id,
+                                       :image  => @img_path,
+                                       :generation => capitalized_gen )
 end
-
-# loops through each result hash and returns the capitalized form of each 'name' element and their url to their page
-# gen_results.each do |data|
-    # pokemon = "#{data['name']}".capitalize
-#     # poke_url = "#{data['url']}"
-#     puts "#{pokemon}"
-# end
-
-
-# # Populate Generation table with name 
-# gen_results.each do |data|
-#     gen = "#{data['name']}".capitalize
-    
-#     create_gen = Generation.create(name: "#{gen}")
-#     create_gen.save
-#     # puts "Created #{data}"
-# end
 
 
 # if Pokemon.count == 0 
@@ -66,12 +58,3 @@ end
 #   NEXT_POKEMON = Pokemon.last.id + 1
 # end
 # TOTAL_POKEMON = HTTParty.get(@url).parsed_response['count']
-    
-# @url = "https://pokeapi.co/api/v2/pokemon/"
-
-# (1..100).each do |x| 
-#     @names = HTTParty.get(@url + x.to_s).parsed_response['name']
-#     @pokedex_num = HTTParty.get(@url + x.to_s).parsed_response['id']
-#     @height = HTTParty.get(@url + x.to_s).parsed_response['height']
-#     @weight = HTTParty.get(@url + x.to_s).parsed_response['weight']
-# end
