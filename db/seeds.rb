@@ -28,28 +28,28 @@ game_results = @json_game['results']
 
 
 # populate pokemons table for GEN 1 -- (For time reasons, had to split it up by generation)
-(1..151).each do |x|
+# (1..151).each do |x|
 
-    @names = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['name']
-    capitalized_name = @names.capitalize
+#     @names = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['name']
+#     capitalized_name = @names.capitalize
 
-    @id = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['id']
-    # @height = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['height']
-    @img_path = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['sprites']['front_default']
+#     @id = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['id']
+#     # @height = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['height']
+#     @img_path = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['sprites']['front_default']
 
-    @gen = HTTParty.get('https://pokeapi.co/api/v2/pokemon-species/' + x.to_s)['generation']['name']
-    capitalized_gen = @gen.capitalize
+#     @gen = HTTParty.get('https://pokeapi.co/api/v2/pokemon-species/' + x.to_s)['generation']['name']
+#     capitalized_gen = @gen.capitalize
 
-    # puts statement for testing
-    # puts "#{@id} -- #{capitalized_name} -- #{@img_path} -- #{capitalized_gen}"
+#     # puts statement for testing
+#     # puts "#{@id} -- #{capitalized_name} -- #{@img_path} -- #{capitalized_gen}"
 
-    Pokemon.create( :name  => capitalized_name,
-                    :pokedex_number => @id,
-                    :image  => @img_path,
-                    :generation_num => capitalized_gen )
+#     Pokemon.create( :name  => capitalized_name,
+#                     :pokedex_number => @id,
+#                     :image  => @img_path,
+#                     :generation_num => capitalized_gen )
 
-    puts "Created #{capitalized_name}"
-end
+#     puts "Created #{capitalized_name}"
+# end
 
 # GEN 2
 (152..251).each do |x|
@@ -74,11 +74,3 @@ end
 
     puts "Created #{capitalized_name}"
 end
-
-
-# if Pokemon.count == 0 
-#   NEXT_POKEMON = 1 
-# else 
-#   NEXT_POKEMON = Pokemon.last.id + 1
-# end
-# TOTAL_POKEMON = HTTParty.get(@url).parsed_response['count']
