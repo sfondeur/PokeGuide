@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_21_000607) do
+ActiveRecord::Schema.define(version: 2018_10_21_001549) do
 
   create_table "games", force: :cascade do |t|
     t.string "name"
@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(version: 2018_10_21_000607) do
     t.string "game"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "game_id"
+    t.index ["game_id"], name: "index_generations_on_game_id"
   end
 
   create_table "pokemons", force: :cascade do |t|
