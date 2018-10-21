@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  gen_name: MyString
+  region_name: MyString
+  pokemon_entries: MyString
+
+two:
+  name: MyString
+  gen_name: MyString
+  region_name: MyString
+  pokemon_entries: MyString
