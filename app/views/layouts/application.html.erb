@@ -10,6 +10,30 @@
   </head>
 
   <body>
-    <%= yield %>
+    <nav>
+      <div class="nav-wrapper">
+        <div class="container">
+          <a href="#" class="brand-logo">PokeGuide</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="sass.html">Pokemon List</a></li>
+            <li><a href="badges.html">Game Series</a></li>
+            <li><a href="collapsible.html">Generations</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <%= yield %>
+    </div>
+
+    <footer class="page-footer">
+          <div class="footer-copyright">
+            <div class="container">
+              © 2018 PokeGuide -- Copywrong -- Shane Fondeur
+            </div>
+          </div>
+    </footer>
+
   </body>
 </html>
