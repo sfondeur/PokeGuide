@@ -7,9 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'httparty'
 
-Pokemon.destroy_all
 Generation.destroy_all
-Game.destroy_all
 
 # the pokemon api's
 @pokemon_api = HTTParty.get('https://pokeapi.co/api/v2/pokemon/')
@@ -44,133 +42,129 @@ game_results = @json_game['results']
     # puts "#{@id} -- #{capitalized_name} -- #{@img_path} -- #{capitalized_gen}"
 
     create_pokemon = Pokemon.create( :name  => capitalized_name,
-                    :pokedex_number => @id,
-                    :image  => @img_path,
-                    :generation_num => capitalized_gen )
-
-    create_pokemon.save
+                                     :pokedex_number => @id,
+                                     :image  => @img_path,
+                                     :generation_num => capitalized_gen )
 
     puts "Created #{capitalized_name}"
 end
+
+puts "  - There are #{Pokemon.count} pokemon created."
 
 # GEN 2
-(152..251).each do |x|
+# (152..251).each do |x|
 
-    @names = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['name']
-    capitalized_name = @names.capitalize
+#     @names = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['name']
+#     capitalized_name = @names.capitalize
 
-    @id = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['id']
-    # @height = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['height']
-    @img_path = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['sprites']['front_default']
+#     @id = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['id']
+#     # @height = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['height']
+#     @img_path = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['sprites']['front_default']
 
-    @gen = HTTParty.get('https://pokeapi.co/api/v2/pokemon-species/' + x.to_s)['generation']['name']
-    capitalized_gen = @gen.capitalize
+#     @gen = HTTParty.get('https://pokeapi.co/api/v2/pokemon-species/' + x.to_s)['generation']['name']
+#     capitalized_gen = @gen.capitalize
 
-    # puts statement for testing
-    # puts "#{@id} -- #{capitalized_name} -- #{@img_path} -- #{capitalized_gen}"
+#     # puts statement for testing
+#     # puts "#{@id} -- #{capitalized_name} -- #{@img_path} -- #{capitalized_gen}"
 
-    create_pokemon = Pokemon.create( :name  => capitalized_name,
-                    :pokedex_number => @id,
-                    :image  => @img_path,
-                    :generation_num => capitalized_gen )
+#     create_pokemon = Pokemon.create( :name  => capitalized_name,
+#                     :pokedex_number => @id,
+#                     :image  => @img_path,
+#                     :generation_num => capitalized_gen )
 
-    create_pokemon.save
 
-    puts "Created #{capitalized_name}"
-end
+#     puts "Created #{capitalized_name}"
+# end
 
 # GEN 3
-(252..386).each do |x|
+# (252..386).each do |x|
 
-    @names = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['name']
-    capitalized_name = @names.capitalize
+#     @names = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['name']
+#     capitalized_name = @names.capitalize
 
-    @id = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['id']
-    # @height = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['height']
-    @img_path = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['sprites']['front_default']
+#     @id = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['id']
+#     # @height = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['height']
+#     @img_path = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['sprites']['front_default']
 
-    @gen = HTTParty.get('https://pokeapi.co/api/v2/pokemon-species/' + x.to_s)['generation']['name']
-    capitalized_gen = @gen.capitalize
+#     @gen = HTTParty.get('https://pokeapi.co/api/v2/pokemon-species/' + x.to_s)['generation']['name']
+#     capitalized_gen = @gen.capitalize
 
-    # puts statement for testing
-    # puts "#{@id} -- #{capitalized_name} -- #{@img_path} -- #{capitalized_gen}"
+#     # puts statement for testing
+#     # puts "#{@id} -- #{capitalized_name} -- #{@img_path} -- #{capitalized_gen}"
 
-    create_pokemon = Pokemon.create( :name  => capitalized_name,
-                    :pokedex_number => @id,
-                    :image  => @img_path,
-                    :generation_num => capitalized_gen )
+#     create_pokemon = Pokemon.create( :name  => capitalized_name,
+#                     :pokedex_number => @id,
+#                     :image  => @img_path,
+#                     :generation_num => capitalized_gen )
     
-    create_pokemon.save
 
-    if x == 386
-        puts "Created #{capitalized_name}"
-        puts "-----------------------"
-        puts "Complete!"
-    else
-        puts "Created #{capitalized_name}"
-    end
-end
+#     if x == 386
+#         puts "Created #{capitalized_name}"
+#         puts "-----------------------"
+#         puts "Complete!"
+#     else
+#         puts "Created #{capitalized_name}"
+#     end
+# end
 
 # GEN 4
-(387..493).each do |x|
+# (387..493).each do |x|
 
-    @names = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['name']
-    capitalized_name = @names.capitalize
+#     @names = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['name']
+#     capitalized_name = @names.capitalize
 
-    @id = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['id']
-    # @height = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['height']
-    @img_path = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['sprites']['front_default']
+#     @id = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['id']
+#     # @height = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['height']
+#     @img_path = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['sprites']['front_default']
 
-    @gen = HTTParty.get('https://pokeapi.co/api/v2/pokemon-species/' + x.to_s)['generation']['name']
-    capitalized_gen = @gen.capitalize
+#     @gen = HTTParty.get('https://pokeapi.co/api/v2/pokemon-species/' + x.to_s)['generation']['name']
+#     capitalized_gen = @gen.capitalize
 
-    # puts statement for testing
-    # puts "#{@id} -- #{capitalized_name} -- #{@img_path} -- #{capitalized_gen}"
+#     # puts statement for testing
+#     # puts "#{@id} -- #{capitalized_name} -- #{@img_path} -- #{capitalized_gen}"
 
-    create_pokemon = Pokemon.create( :name  => capitalized_name,
-                    :pokedex_number => @id,
-                    :image  => @img_path,
-                    :generation_num => capitalized_gen )
+#     create_pokemon = Pokemon.create( :name  => capitalized_name,
+#                     :pokedex_number => @id,
+#                     :image  => @img_path,
+#                     :generation_num => capitalized_gen )
 
-    create_pokemon.save
 
-    if x == 493
-        puts "Created #{capitalized_name}"
-        puts "-----------------------"
-        puts "Complete!"
-    else
-        puts "Created #{capitalized_name}"
-    end
-end
+#     if x == 493
+#         puts "Created #{capitalized_name}"
+#         puts "-----------------------"
+#         puts "Complete!"
+#     else
+#         puts "Created #{capitalized_name}"
+#     end
+# end
 
 # GEN 5
-(494..649).each do |x|
+# (494..649).each do |x|
 
-    @names = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['name']
-    capitalized_name = @names.capitalize
+#     @names = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['name']
+#     capitalized_name = @names.capitalize
 
-    @id = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['id']
-    # @height = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['height']
-    @img_path = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['sprites']['front_default']
+#     @id = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['id']
+#     # @height = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['height']
+#     @img_path = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['sprites']['front_default']
 
-    @gen = HTTParty.get('https://pokeapi.co/api/v2/pokemon-species/' + x.to_s)['generation']['name']
-    capitalized_gen = @gen.capitalize
+#     @gen = HTTParty.get('https://pokeapi.co/api/v2/pokemon-species/' + x.to_s)['generation']['name']
+#     capitalized_gen = @gen.capitalize
 
-    # puts statement for testing
-    # puts "#{@id} -- #{capitalized_name} -- #{@img_path} -- #{capitalized_gen}"
+#     # puts statement for testing
+#     # puts "#{@id} -- #{capitalized_name} -- #{@img_path} -- #{capitalized_gen}"
 
-    create_pokemon = Pokemon.create( :name  => capitalized_name,
-                    :pokedex_number => @id,
-                    :image  => @img_path,
-                    :generation_num => capitalized_gen )
+#     create_pokemon = Pokemon.create( :name  => capitalized_name,
+#                     :pokedex_number => @id,
+#                     :image  => @img_path,
+#                     :generation_num => capitalized_gen )
 
-    create_pokemon.save
 
-    if x == 649
-        puts "Created #{capitalized_name}"
-        puts "-----------------------"
-        puts "Complete!"
-    else
-        puts "Created #{capitalized_name}"
-    end
-end
+#     if x == 649
+#         puts "Created #{capitalized_name}"
+#         puts "-----------------------"
+#         puts "Complete!"
+#     else
+#         puts "Created #{capitalized_name}"
+#     end
+# end

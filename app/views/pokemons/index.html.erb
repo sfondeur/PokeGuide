@@ -1,2 +1,19 @@
-<h1>Pokemons#index</h1>
-<p>Find me in app/views/pokemons/index.html.erb</p>
+<h3>Pokemon List!</h3>
+
+  <div class="row">
+	<% @pokemons.each do |x| %>
+    <div class="col s12 m2">
+      <div class="card-panel">
+        <div class="poke_id">
+			#<%= x.id %>
+        </div>
+		<div class="poke_name">
+			<%= x.name %>
+		</div>
+		<span>
+			<a href="THIS WILL BE A LINK THAT GOES TO THE INDIVIDUAL POKEMON PAGE"><img src="<%= x.image %>"></a>
+		</span>
+      </div>
+    </div>
+	<% end %>
+  </div>
