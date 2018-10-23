@@ -1,4 +1,4 @@
-<h3>Pokemon List!</h3>
+<h3 class="test">Pokemon List!</h3>
 
   <div class="row">
 	<% @pokemons.each do |x| %>
@@ -8,10 +8,10 @@
 			#<%= x.id %>
         </div>
 		<div class="poke_name">
-			<%= x.name %>
+			<%= link_to x.name, x %>
 		</div>
 		<span>
-			<a href="THIS WILL BE A LINK THAT GOES TO THE INDIVIDUAL POKEMON PAGE"><img src="<%= x.image %>"></a>
+			<img src="<%= x.image %>">
 		</span>
       </div>
     </div>

@@ -1,8 +1,15 @@
 Rails.application.routes.draw do
-  get 'pokemons/index'
+
+  resources :pokemons, only: [:index, :show], id: /\d+/
+
+  root to: 'pokemons#index'
+
+  # INDEX
+  # get 'pokemons', to: 'pokemons#index'
+
+  # SHOW
+  # get 'pokemons/:id', to: 'pokemons#show', id: /\d+/
   
-  get 'pokemons/show'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get 'about', to: 'about#index'
 
 
