@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_24_195706) do
+ActiveRecord::Schema.define(version: 2018_10_24_200854) do
 
   create_table "games", force: :cascade do |t|
     t.string "name"
@@ -24,11 +24,11 @@ ActiveRecord::Schema.define(version: 2018_10_24_195706) do
   create_table "generations", force: :cascade do |t|
     t.string "gen_name"
     t.string "region_name"
-    t.string "debuting_pokemon"
-    t.string "game"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "game_id"
+    t.text "debuting_pokemon"
+    t.text "games"
     t.index ["game_id"], name: "index_generations_on_game_id"
   end
 

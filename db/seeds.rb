@@ -113,10 +113,17 @@ require 'httparty'
 # populate Generation table
 (1..7).each do |x|
     @region_name = HTTParty.get('https://pokeapi.co/api/v2/generation/' + x.to_s)['main_region']['name']
-    
-    capitalized_region = @region_name.capitalize
+    @gen_name = HTTParty.get('https://pokeapi.co/api/v2/generation/' + x.to_s)['name']
+    @pokemon_species = HTTParty.get('https://pokeapi.co/api/v2/generation/' + x.to_s)['pokemon_species'][0]['name']
 
-    create_generation = Generation.create( :region_name => )
+    capitalized_pokemon_name = @pokemon_species.capitalize
+    capitalized_region = @region_name.capitalize
+    # capitalized_gen_name = @gen_name.capitalize
+
+    create_generation = Generation.create( :gen_name => @gen_name,
+                                           :region_name => capitalized_region,
+                                           :debuting_pokemon => capitalized_pokemon_name,
+                                           :game => )
 
     puts "-- There are #{Generation.count} generations uploaded to the table."
 end
