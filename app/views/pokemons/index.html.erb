@@ -3,11 +3,19 @@
 <p>Welcome to my Pokemon Database!</p>
 <p>Check out the featured Pokemon of the day below or look at the gallery in the menu!</p>
 
+<%= form_tag("/search", method: "get") do %>
+  <%= label_tag(:q, "Search for:") %>
+  <%= text_field_tag(:q) %>
+  <button class="btn red lighten-2 waves-effect waves-light" type="submit" name="action">Search
+    <i class="material-icons right">send</i>
+  </button>
+<% end %>
+
 <div class="col s12 m7 featured_card">
     <h5 class="header">Featured Pokemon of the Day!</h5>
     <div class="card horizontal hoverable">
       <div class="card-image">
-        <img class="featured_image" src="<%= @random_pokemon.image %>">
+        <img class="featured_image" src="<%= @random_pokemon.image %>" alt="featured pokemon">
       </div>
       <div class="card-stacked">
         <div class="card-content">
