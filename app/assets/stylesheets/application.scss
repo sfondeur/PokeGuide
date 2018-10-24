@@ -32,3 +32,41 @@ footer {
     padding: 12px;
     text-align: center;
 }
+
+.show_image {
+    height: 300px;
+    width: 300px;
+}
+
+.show_card {
+    margin: auto;
+    width: 750px;
+}
+
+.inline {
+    display: inline;
+}
+
+.normal_shiny {
+    position: absolute;
+    left: -70px;
+}
+
+.sprites {
+    position: relative;
+    display: inline;
+}
+
+.card-action {
+    margin: auto;
+}
+
+.spacer {
+    margin-left: 25px;
+    margin-right: 25px;
+    display: inline;
+}
+
+.header {
+    text-align: center;
+}

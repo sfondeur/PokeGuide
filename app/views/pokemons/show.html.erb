@@ -1,16 +1,33 @@
 
- <div class="row">
-    <div class="col s12 m4">
-      <div class="card">
-        <div class="card-image">
-          <img src="<%= @show_pokemon.image %>">
-          <span class="card-title" style="color:black"><%= @show_pokemon.name %></span>
-        </div>
+    <div class="col s12 m7 show_card">
+    <h2 class="header"><%= @show_pokemon.name %></h2>
+    <div class="card horizontal">
+      <div class="card-image">
+        <img class="show_image" src="<%= @full_url %>">
+      </div>
+      <div class="card-stacked">
         <div class="card-content">
-          <p><%= @show_pokemon.generation_num %></p>
+          <ul>
+            <li><b>Generation:</b> <%= @show_pokemon.generation_num %></li>
+            <li><b>Pokedex Number:</b> <%= @show_pokemon.pokedex_number %></li>
+            <li><b>Type:</b> <%= @show_pokemon.type_one %> <%= @show_pokemon.type_two %></li>
+            <li><b>Height:</b> <%= @show_pokemon.height %>"</li>
+            <li><b>Weight:</b> <%= @show_pokemon.weight %> lbs</li>
+          </ul>
         </div>
+
         <div class="card-action">
-          <p>Extra details here</p>
+            <div class="sprites">
+              <span class="normal_shiny">Normal Sprite</span>
+              <img class="sprite_img" src="<%= @show_pokemon.image %>">
+            </div>
+
+            <div class="spacer"></div>
+
+            <div class="sprites">
+              <span class="normal_shiny">Shiny Sprite</span>
+              <img class="sprite_img" src="<%= @show_pokemon.shiny_sprite %>">
+            </div>
         </div>
       </div>
     </div>

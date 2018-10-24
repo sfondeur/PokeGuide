@@ -6,5 +6,10 @@ class PokemonsController < ApplicationController
 
   def show
     @show_pokemon = Pokemon.find(params[:id])
+
+    high_res_image_url = "https://pokeres.bastionbot.org/images/pokemon/"
+    second_url = @show_pokemon.id
+    third_url = ".png"
+    @full_url = high_res_image_url + second_url.to_s + third_url
   end
 end
