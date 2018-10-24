@@ -10,7 +10,10 @@
           <ul>
             <li><b>Generation:</b> <%= @show_pokemon.generation_num %></li>
             <li><b>Pokedex Number:</b> <%= @show_pokemon.pokedex_number %></li>
-            <li><b>Type:</b> <%= @show_pokemon.type_one %> <%= @show_pokemon.type_two %></li>
+            <li><b>Type(s):</b>
+              <span class="<%= @type_colour_class_1 %>"><%= @show_pokemon.type_one %></span>
+              <span class="<%= @type_colour_class_2 %>"><%= @show_pokemon.type_two %></span>
+            </li>
             <li><b>Height:</b> <%= @show_pokemon.height %>"</li>
             <li><b>Weight:</b> <%= @show_pokemon.weight %> lbs</li>
           </ul>

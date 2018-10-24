@@ -1,0 +1,22 @@
+<h3>Gallery</h3>
+
+<p>Welcome to the Pokemon Gallery!</p>
+<p>Find your pokemon in the list below or sort by generation number.</p>
+
+<div class="row">
+    <% @pokemons.each do |x| %>
+    <div class="col s12 m2">
+        <div class="card-panel hoverable">
+            <div class="poke_id">
+			    #<%= x.id %>
+            </div>
+		    <div class="poke_name">
+			    <%= link_to x.name, x %>
+		    </div>
+		    <span>
+			    <img src="<%= x.image %>">
+		    </span>
+        </div>
+    </div>
+    <% end %>
+</div>

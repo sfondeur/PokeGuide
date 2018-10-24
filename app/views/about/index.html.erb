@@ -1,11 +1,37 @@
 <!--About page displays details on my data sources and my ERD.-->
 
-<h2>About PokeGuide!</h2>
+<h3>About PokeGuide!</h3>
 
-<p>My Data sources used in this project..</p>
+<p>My Data sources used in this project:</p>
 
-<ul>
-    <li>PokeApi: https://pokeapi.co/api/v2/</li>
-    <li>For images i used: https://github.com/fanzeyi/Pokemon-DB</li>
-    <li></li>
-</ul>
+<table>
+    <thead>
+        <tr>
+            <th>Data Source</th>
+            <th>Used For?</th>
+            <th>Link</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>PokeApi</td>
+            <td>Most of the Pokemon Data</td>
+            <td>https://pokeapi.co/api/v2/</td>
+        </tr>
+        <tr>
+            <td>PokeRes</td>
+            <td>High Res images for Show pages</td>
+            <td>https://pokeres.bastionbot.org/</td>
+        </tr>
+        <tr>
+            <td>Fanzeyi's PokemonDB</td>
+            <td>Good JSON library of sprites and images</td>
+            <td>https://github.com/fanzeyi/Pokemon-DB</td>
+        </tr>
+    </tbody>
+</table>
+
+<div style="text-align: center">
+    <h6>ERD Diagram</h6>
+    <%= image_tag 'erd.png', alt: 'ERD' %>
+</div>

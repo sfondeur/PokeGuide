@@ -23,9 +23,20 @@ footer {
 
 .poke_id {
     font-weight: bold;
-}  
+}
+.featured_id {
+    font-weight: bold;
+    font-size: 14pt;
+}
 .poke_name {
-    font-size: 12pt;
+    font-size: 13pt;
+}
+.featured_name {
+    font-size: 20pt;
+}
+.featured_image {
+    width: 100%;
+    height: 100%;
 }
 
 .card-panel {
@@ -69,4 +80,65 @@ footer {
 
 .header {
     text-align: center;
+}
+
+.featured_card {
+    padding-top: 15px;
+    margin: auto;
+    width: 375px;
+}
+
+
+// colour classes for the types
+.fire {
+    color: rgb(190, 16, 16);
+}
+.grass {
+    color: rgb(10, 139, 10);
+}
+.water {
+    color: rgb(12, 12, 221);
+}
+.ice {
+    color: rgba(113, 184, 207, 0.863);
+}
+.poison {
+    color: rgb(189, 5, 189);
+}
+.ghost {
+    color: rgb(116, 88, 133);
+}
+.dark {
+    color: rgb(20, 19, 19);
+    background-color: rgb(141, 132, 132);
+}
+.electric {
+    color: rgba(196, 196, 0, 0.973);
+}
+.steel {
+    color: silver;
+}
+.rock, .ground {
+    color: rgb(143, 80, 44);
+}
+.flying {
+    color: rgb(21, 209, 146);
+}
+.dragon {
+    color: rgb(47, 141, 110);
+}
+.psychic {
+    color: fuchsia;
+}
+.fighting {
+    color: rgb(179, 69, 18);
+}
+.bug {
+    color: rgb(106, 131, 71);
+}
+.normal {
+    background-color: rgb(230, 230, 202);
+}
+.fairy {
+    color: rgb(201, 115, 129);
 }

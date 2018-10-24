@@ -1,19 +1,23 @@
-<h3 class="test">Pokemon List!</h3>
+<h3>Pokemon Database!</h3>
 
-  <div class="row">
-	<% @pokemons.each do |x| %>
-    <div class="col s12 m2">
-      <div class="card-panel hoverable">
-        <div class="poke_id">
-			#<%= x.id %>
+<p>Welcome to my Pokemon Database!</p>
+<p>Check out the featured Pokemon of the day below or look at the gallery in the menu!</p>
+
+<div class="col s12 m7 featured_card">
+    <h5 class="header">Featured Pokemon of the Day!</h5>
+    <div class="card horizontal hoverable">
+      <div class="card-image">
+        <img class="featured_image" src="<%= @random_pokemon.image %>">
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+					<div class="poke_id">
+						#<%= @random_pokemon.id %>
+        	</div>
+          <div class="featured_name">
+						<%= link_to @random_pokemon.name, @random_pokemon %>
+					</div>
         </div>
-		<div class="poke_name">
-			<%= link_to x.name, x %>
-		</div>
-		<span>
-			<img src="<%= x.image %>">
-		</span>
       </div>
     </div>
-	<% end %>
-  </div>
+</div>
