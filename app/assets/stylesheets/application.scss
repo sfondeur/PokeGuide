@@ -93,6 +93,16 @@ footer {
     text-align: center;
 }
 
+.search_ul {
+    list-style-image: url('pokeball.png');
+}
+
+.search_results {
+    padding-left: 5px;
+    font-size: 16pt;
+    
+}
+
 // colour classes for the types
 .fire {
     color: rgb(190, 16, 16);

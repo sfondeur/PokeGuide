@@ -1,18 +1,20 @@
-<h3>Pokemon Database!</h3>
+<div class="container">
+<h3>Welcome to my PokeGuide!</h3>
 
-<p>Welcome to my Pokemon Database!</p>
-<p>Check out the featured Pokemon of the day below or look at the gallery in the menu!</p>
+<p>Welcome to my pokemon database, created for the midterm project in Full Stack Web Development Term 5.</p>
+<p>Search for the pokemon you're looking for, check out our random Pokemon of the day below or take a look at the gallery in the top menu!</p>
 
-<%= form_tag("/search", method: "get") do %>
+<%= form_tag(results_search_index_path, method: "get") do %>
   <%= label_tag(:q, "Search for:") %>
   <%= text_field_tag(:q) %>
   <button class="btn red lighten-2 waves-effect waves-light" type="submit" name="action">Search
     <i class="material-icons right">send</i>
   </button>
 <% end %>
+</div>
 
 <div class="col s12 m7 featured_card">
-    <h5 class="header">Featured Pokemon of the Day!</h5>
+    <h5 class="header">Random Pokemon of the Day!</h5>
     <div class="card horizontal hoverable">
       <div class="card-image">
         <img class="featured_image" src="<%= @random_pokemon.image %>" alt="featured pokemon">

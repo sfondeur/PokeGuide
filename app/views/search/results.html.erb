@@ -1,0 +1,12 @@
+<div class="container">
+<h4>Results Found: <%= @pokemons.size %> </h4>
+    <% if @pokemons.empty? %>
+        <p>Sorry, No Pokemon found by that name..</p>
+    <% else %>
+        <ul class="search_ul">
+            <% @pokemons.each do |x| %>
+                <li class="search_results"><%= link_to x.name, x %></li>
+            <% end %>
+        </ul>
+    <% end %>
+</div>

@@ -3,7 +3,7 @@ class PokemonsController < ApplicationController
     # load up all of the pokemon and make instance variables for all the stuff i need to access on the html
     # @pokemons = Pokemon.limit(151)
 
-    @random_pokemon = Pokemon.find(rand(1..712))
+    @random_pokemon = Pokemon.find(rand(1..802))
   end
 
   def show
