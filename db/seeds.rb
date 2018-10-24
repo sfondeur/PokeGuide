@@ -30,85 +30,101 @@ require 'httparty'
 
 
 # populate pokemons table -- 
-(1..802).each do |x|
+# (1..802).each do |x|
 
-    @names = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['name']
-    capitalized_name = @names.capitalize
+#     @names = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['name']
+#     capitalized_name = @names.capitalize
 
-    @id = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['id']
-    @height = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['height']
-    @weight = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['weight']
+#     @id = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['id']
+#     @height = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['height']
+#     @weight = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['weight']
 
-    @image_path = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['sprites']['front_default']
-    @shiny_sprite = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['sprites']['front_shiny']
+#     @image_path = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['sprites']['front_default']
+#     @shiny_sprite = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['sprites']['front_shiny']
 
-    # Checking for Dual typed pokemon
-    @types = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['types']
+#     # Checking for Dual typed pokemon
+#     @types = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['types']
 
-    if @types.count == 1
-        @type_one = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['types'][0]['type']['name']
-        capitalized_type_one = @type_one.capitalize
-        @type_two = nil
-        capitalized_type_two = nil
-    else
-        @type_one = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['types'][1]['type']['name']
-        @type_two = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['types'][0]['type']['name']
+#     if @types.count == 1
+#         @type_one = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['types'][0]['type']['name']
+#         capitalized_type_one = @type_one.capitalize
+#         @type_two = nil
+#         capitalized_type_two = nil
+#     else
+#         @type_one = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['types'][1]['type']['name']
+#         @type_two = HTTParty.get('https://pokeapi.co/api/v2/pokemon/' + x.to_s)['types'][0]['type']['name']
 
-        capitalized_type_one = @type_one.capitalize
-        capitalized_type_two = @type_two.capitalize
-    end
+#         capitalized_type_one = @type_one.capitalize
+#         capitalized_type_two = @type_two.capitalize
+#     end
 
-    # Checking for the pokemons Generation
-    @gen = HTTParty.get('https://pokeapi.co/api/v2/pokemon-species/' + x.to_s)['generation']['name']
+#     # Checking for the pokemons Generation
+#     @gen = HTTParty.get('https://pokeapi.co/api/v2/pokemon-species/' + x.to_s)['generation']['name']
 
-    case
-    when @gen == 'generation-i'
-        # puts "Generation 1"
-        gen_num = 1.to_s
-    when @gen == 'generation-ii'
-        # puts "Generation 2"
-        gen_num = 2.to_s
-    when @gen == 'generation-iii'
-        # puts "Generation 3"
-        gen_num = 3.to_s
-    when @gen == 'generation-iv'
-        # puts "Generation 4"
-        gen_num = 4.to_s
-    when @gen == 'generation-v'
-        # puts "Generation 5"
-        gen_num = 5.to_s
-    when @gen == 'generation-vi'
-        # puts "Generation 6"
-        gen_num = 6.to_s
-    when @gen == 'sun-moon'
-        # puts "Generation 7"
-        gen_num = 7.to_s
-    else
-      "Error.."
-    end
-    # puts "#{gen_num}"
+#     case
+#     when @gen == 'generation-i'
+#         # puts "Generation 1"
+#         gen_num = 1.to_s
+#     when @gen == 'generation-ii'
+#         # puts "Generation 2"
+#         gen_num = 2.to_s
+#     when @gen == 'generation-iii'
+#         # puts "Generation 3"
+#         gen_num = 3.to_s
+#     when @gen == 'generation-iv'
+#         # puts "Generation 4"
+#         gen_num = 4.to_s
+#     when @gen == 'generation-v'
+#         # puts "Generation 5"
+#         gen_num = 5.to_s
+#     when @gen == 'generation-vi'
+#         # puts "Generation 6"
+#         gen_num = 6.to_s
+#     when @gen == 'sun-moon'
+#         # puts "Generation 7"
+#         gen_num = 7.to_s
+#     else
+#       "Error.."
+#     end
+#     # puts "#{gen_num}"
 
-    # for testing
-    # puts "#{capitalized_name} has an ID of: #{@id} and was introduced in Generation #{gen_num}"
-    # puts "They are around #{@height} inches and #{@weight} pounds on average."
-    # puts "And is a #{capitalized_type_one} #{capitalized_type_two} type."
-    # puts "Regular Sprite Path: #{@image}"
-    # puts "Shiny Sprite path: #{@shiny_sprite}"
-    # puts "---"
+#     # for testing
+#     # puts "#{capitalized_name} has an ID of: #{@id} and was introduced in Generation #{gen_num}"
+#     # puts "They are around #{@height} inches and #{@weight} pounds on average."
+#     # puts "And is a #{capitalized_type_one} #{capitalized_type_two} type."
+#     # puts "Regular Sprite Path: #{@image}"
+#     # puts "Shiny Sprite path: #{@shiny_sprite}"
+#     # puts "---"
     
 
-    create_pokemon = Pokemon.create( :name  => capitalized_name,
-                                     :pokedex_number => @id,
-                                     :image  => @image_path,
-                                     :shiny_sprite => @shiny_sprite,
-                                     :generation_num => gen_num,
-                                     :height => @height,
-                                     :weight => @weight,
-                                     :type_one => capitalized_type_one,
-                                     :type_two => capitalized_type_two )
+#     create_pokemon = Pokemon.create( :name  => capitalized_name,
+#                                      :pokedex_number => @id,
+#                                      :image  => @image_path,
+#                                      :shiny_sprite => @shiny_sprite,
+#                                      :generation_num => gen_num,
+#                                      :height => @height,
+#                                      :weight => @weight,
+#                                      :type_one => capitalized_type_one,
+#                                      :type_two => capitalized_type_two )
 
-    puts "  - There are #{Pokemon.count} pokemon created."
+#     puts "  - There are #{Pokemon.count} pokemon created."
+# end
+
+# populate Generation table
+(1..7).each do |x|
+    @region_name = HTTParty.get('https://pokeapi.co/api/v2/generation/' + x.to_s)['main_region']['name']
+    
+    capitalized_region = @region_name.capitalize
+
+    create_generation = Generation.create( :region_name => )
+
+    puts "-- There are #{Generation.count} generations uploaded to the table."
 end
+
+# populate Game table
+# (1..17).each do |x|
+    
+# end
 
 # UPDATE for missing data
 # (650..807).each do |x|
