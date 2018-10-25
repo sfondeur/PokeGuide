@@ -19,6 +19,9 @@ gem 'uglifier', '>= 1.3.0'
 # added httparty for json calls
 gem 'httparty'
 
+# added kaminari for pagination
+gem 'kaminari'
+
 # added materialize because it's better than bootstrap ;)
 gem 'materialize-sass'
 
